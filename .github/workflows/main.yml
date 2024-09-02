@@ -2,9 +2,9 @@ name: Build and Push Multi-Arch Golang UPX Image to GitHub Container Registry
 
 on:
   push:
-    branches: [main]
+    branches: [1.23.0-bookworm]
   pull_request:
-    branches: [main]
+    branches: [1.23.0-bookworm]
   workflow_dispatch:
     inputs:
       logLevel:
