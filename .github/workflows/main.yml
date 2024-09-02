@@ -1,4 +1,4 @@
-name: Build and Push Multi-Arch URL Shortener to GHCR
+name: Build and Push Multi-Arch Golang UPX Image to GitHub Container Registry
 
 on:
   push:
