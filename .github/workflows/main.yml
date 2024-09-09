@@ -6,29 +6,11 @@ on:
   pull_request:
     branches: [1.23.1-bookworm]
   workflow_dispatch:
-    inputs:
-      logLevel:
-        description: "Log level"
-        required: true
-        default: "debug"
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      tags:
-        description: "Test scenario tags"
-        required: false
-        type: boolean
-      environment:
-        description: "Environment to run tests against"
-        type: environment
-        required: false
 
 jobs:
   build:
     name: Build and Push Multi-Arch Golang UPX Image
-    runs-on: [ubuntu-latest]
+    runs-on: vdf
     if: contains(github.event.head_commit.message, '#build')
     steps:
       - name: Check out code
