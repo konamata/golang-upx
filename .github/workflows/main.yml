@@ -54,6 +54,4 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{ steps.branch_name.outputs.BRANCH_NAME }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
           provenance: false
