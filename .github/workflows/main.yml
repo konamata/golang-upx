@@ -30,6 +30,11 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.MY_PAT_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
 
       - name: Extract repository name
         id: repo_name
@@ -47,11 +52,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/${{ steps.repo_name.outputs.REPO_NAME }}:latest
-            ghcr.io/${{ github.repository_owner }}/${{ steps.repo_name.outputs.REPO_NAME }}:${{ steps.branch_name.outputs.BRANCH_NAME }}
-          labels: |
-            org.opencontainers.image.description=Multi-Arch ${{ steps.repo_name.outputs.REPO_NAME }} Image
-          build-args: |
-            BUILDPLATFORM=${{ runner.os }}/${{ runner.arch }}
-            NO_CACHE=true
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ steps.branch_name.outputs.BRANCH_NAME }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           provenance: false
