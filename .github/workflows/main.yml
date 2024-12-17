@@ -2,9 +2,9 @@ name: Multi-Arch Golang UPX CI
 
 on:
   push:
-    branches: [1.23.1-bookworm]
+    branches: [1.23.4-bookworm]
   pull_request:
-    branches: [1.23.1-bookworm]
+    branches: [1.23.4-bookworm]
   workflow_dispatch:
 
 jobs:
