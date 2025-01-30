@@ -1,5 +1,8 @@
 FROM golang:1.23.5-bookworm AS build
 
+ARG TARGETARCH
+ARG TARGETOS
+
 # Set the upx version
 ARG upx_version=4.2.4
 
