@@ -1,4 +1,4 @@
-FROM golang:1.23.5-bookworm AS build
+FROM golang:1.24.3-bookworm AS build
 
 ARG TARGETARCH
 ARG TARGETOS
